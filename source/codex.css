@@ -1429,6 +1429,44 @@ html.codedrobe-host-codex header.app-header-tint [data-test-id="header-shell-slo
   box-shadow: none !important;
 }
 
+/*
+ * v1.1.71 — the visible blue rectangle belongs to the native header context
+ * surface, not the retired group/tab title. Flatten that surface and its
+ * noninteractive layout wrappers into the single title-bar background. Keep
+ * the action hosts and buttons intact, and add a small safe inset so the
+ * folder/title can never touch the surface's left clipping edge.
+ */
+html.codedrobe-host-codex
+  header.app-header-tint
+  [data-testid="app-shell-header-context-menu-surface"] {
+  contain: layout !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  border-color: transparent !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+html.codedrobe-host-codex
+  header.app-header-tint
+  [data-testid="app-shell-header-context-menu-surface"] > div,
+html.codedrobe-host-codex
+  header.app-header-tint
+  [data-testid="app-shell-header-context-menu-surface"] > div > div {
+  background-color: transparent !important;
+  background-image: none !important;
+  border-color: transparent !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+html.codedrobe-host-codex
+  header.app-header-tint
+  [data-testid="app-shell-header-context-menu-surface"] > div > div:first-child {
+  box-sizing: border-box !important;
+  padding-inline-start: 4px !important;
+}
+
 /* v1.1.67 — retire the old rectangular header gap patch. */
 html.codedrobe-host-codex header.app-header-tint::after {
   content: none !important;
