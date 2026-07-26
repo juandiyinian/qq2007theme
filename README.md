@@ -2,21 +2,21 @@
 
 一款为 OpenAI Codex / ChatGPT 桌面端制作的 QQ 2007 怀旧主题，同时适配 Codex、ChatGPT Chat 和 ChatGPT Work 场景。
 
-![QQ 2007 Codex + Chat/Work Theme](assets/qq2007-codex-chat-work-v1.1.70.png)
+![QQ 2007 Codex + Chat/Work Theme](assets/qq2007-codex-chat-work-v1.1.71.png)
 
 ## 下载
 
-[下载 QQ 2007 Codex + Chat/Work v1.1.70](releases/QQ-2007-Codex-Chat-Work-v1.1.70.codedrobe-theme)
+[下载 QQ 2007 Codex + Chat/Work v1.1.71](releases/QQ-2007-Codex-Chat-Work-v1.1.71.codedrobe-theme)
 
 SHA-256：
 
 ```text
-bcafd459cd23c98c805f873cf9ae590f08f7f09620f832c891c8784c1a1524fa
+d5baed7df8d7eb71d01720bd69f6763521359030c51ec804b334c9bc22ae3612
 ```
 
 旧版 v1.1.57 仍保留在 [`releases/`](releases/) 中。
 
-## v1.1.70 功能
+## v1.1.71 功能
 
 - 保留并适配 Codex / ChatGPT 原生模式切换。
 - Codex 与 ChatGPT 切换按钮位于搜索按钮左侧。
@@ -26,13 +26,15 @@ bcafd459cd23c98c805f873cf9ae590f08f7f09620f832c891c8784c1a1524fa
 - 隐藏 Chat 输入框内部的黄色焦点横线。
 - 移除顶部菜单栏多余的白色、蓝色矩形占位层。
 - 防止顶部标题或文件夹图标被标题标签的背景框遮挡。
+- 清除当前原生顶部上下文容器的独立绘制层，将可见边界压缩为 1 像素分隔线。
+- 为顶部文件夹图标和标题增加安全间距，同时保留全部原生功能按钮。
 
 完整变更说明见 [CHANGELOG.md](CHANGELOG.md)。
 
 ## 兼容性
 
 - 目标应用：OpenAI Codex / ChatGPT 桌面端
-- 当前主题版本：v1.1.70
+- 当前主题版本：v1.1.71
 - 主要针对 macOS 优化
 - Windows 尚未完成视觉验证
 - 推荐 CodeDrobe Core：0.3.0
@@ -44,11 +46,11 @@ bcafd459cd23c98c805f873cf9ae590f08f7f09620f832c891c8784c1a1524fa
 
 ```bash
 npx --yes @codedrobe/core@0.3.0 theme inspect \
-  "$HOME/Downloads/QQ-2007-Codex-Chat-Work-v1.1.70.codedrobe-theme"
+  "$HOME/Downloads/QQ-2007-Codex-Chat-Work-v1.1.71.codedrobe-theme"
 
 npx --yes @codedrobe/core@0.3.0 apply \
   --app codex \
-  --theme "$HOME/Downloads/QQ-2007-Codex-Chat-Work-v1.1.70.codedrobe-theme"
+  --theme "$HOME/Downloads/QQ-2007-Codex-Chat-Work-v1.1.71.codedrobe-theme"
 ```
 
 也可以把主题包拖入 Codex，并发送：
@@ -62,7 +64,7 @@ npx --yes @codedrobe/core@0.3.0 apply \
 ```bash
 npx --yes @codedrobe/core@0.3.0 verify \
   --app codex \
-  --theme "$HOME/Downloads/QQ-2007-Codex-Chat-Work-v1.1.70.codedrobe-theme" \
+  --theme "$HOME/Downloads/QQ-2007-Codex-Chat-Work-v1.1.71.codedrobe-theme" \
   --screenshot "$HOME/Desktop/qq2007-theme-check.png"
 ```
 
@@ -79,7 +81,7 @@ npx --yes @codedrobe/core@0.3.0 verify \
 ```bash
 npx --yes @codedrobe/core@0.3.0 theme pack \
   source/theme.json \
-  --output releases/QQ-2007-Codex-Chat-Work-v1.1.70.codedrobe-theme
+  --output releases/QQ-2007-Codex-Chat-Work-v1.1.71.codedrobe-theme
 ```
 
 ## 恢复默认主题
