@@ -1,0 +1,318 @@
+{
+  "schemaVersion": 1,
+  "id": "qq2007-inspired-codex",
+  "displayName": "QQ 2007 Codex + Chat/Work",
+  "version": "1.1.70",
+  "images": {
+    "sidebar-avatar": "assets/sidebar-avatar.png",
+    "sidebar-new-task": "assets/sidebar-new-task.png",
+    "sidebar-pull-request": "assets/sidebar-pull-request.png",
+    "sidebar-sites": "assets/sidebar-sites.png",
+    "sidebar-scheduled": "assets/sidebar-scheduled.png",
+    "sidebar-plugins": "assets/sidebar-plugins.png",
+    "sidebar-project-folder": "assets/sidebar-project-folder.png",
+    "sidebar-search": "assets/sidebar-search.png",
+    "right-qqshow": "assets/right-qqshow.png",
+    "right-panel-labels": "assets/right-panel-labels.png",
+    "composer-toolbar-icons": "assets/composer-toolbar-icons.png",
+    "home-game-hall": "assets/home-game-hall.png",
+    "home-game-icons": "assets/home-game-icons.png"
+  },
+  "targets": {
+    "codex": {
+      "css": "codex.css",
+      "options": {
+        "baseTheme": {
+          "mode": "light",
+          "codeTheme": "codex",
+          "accent": "#087FD1",
+          "contrast": 78,
+          "ink": "#153656",
+          "surface": "#FFFFFF",
+          "opaqueWindows": true,
+          "fonts": {
+            "windowsCode": "Cascadia Code",
+            "windowsUi": "Microsoft YaHei UI",
+            "macCode": "SF Mono",
+            "macUi": "PingFang SC"
+          }
+        }
+      },
+      "verification": {
+        "required": [
+          {
+            "name": "sidebar-shell",
+            "any": [
+              "aside.app-shell-left-panel"
+            ]
+          },
+          {
+            "name": "sidebar-native-search",
+            "any": [
+              "aside.app-shell-left-panel button.ml-auto"
+            ]
+          },
+          {
+            "name": "main-surface",
+            "any": [
+              "main.main-surface"
+            ]
+          },
+          {
+            "name": "composer",
+            "any": [
+              ".composer-surface-chrome"
+            ]
+          }
+        ],
+        "recommended": [
+          {
+            "name": "sidebar-app-mode-switcher",
+            "any": [
+              "aside.app-shell-left-panel .ml-2.flex.items-center.pr-1 > button[data-state][aria-expanded]"
+            ]
+          },
+          {
+            "name": "native-header-shell",
+            "any": [
+              "header.app-header-tint [data-test-id='header-shell-slot']"
+            ]
+          },
+          {
+            "name": "native-header-menu-surface",
+            "any": [
+              "header.app-header-tint [data-testid='app-shell-header-context-menu-surface']"
+            ]
+          },
+          {
+            "name": "native-header-action-hosts",
+            "any": [
+              "header.app-header-tint [data-test-id='header-shell-slot'] .pointer-events-auto",
+              "header.app-header-tint [data-testid='app-shell-header-context-menu-surface'] .pointer-events-auto"
+            ]
+          },
+          {
+            "name": "sidebar-new-task-icon-slot",
+            "any": [
+              "aside.app-shell-left-panel nav > .relative.z-10 > .flex.flex-col.gap-1 span:has(> svg.icon-xs)"
+            ]
+          },
+          {
+            "name": "sidebar-shortcut-icon-stack",
+            "any": [
+              "aside.app-shell-left-panel nav > .vertical-scroll-fade-mask > div:first-child button:nth-of-type(4) span:has(> svg.icon-xs)"
+            ]
+          },
+          {
+            "name": "sidebar-project-folder-icons",
+            "any": [
+              "aside.app-shell-left-panel .group\\/folder-row span:has(> svg.icon-xs.shrink-0)"
+            ]
+          },
+          {
+            "name": "sidebar-show-more",
+            "any": [
+              "aside.app-shell-left-panel .vertical-scroll-fade-mask [role='listitem'].flex.gap-1.py-1.px-8 > button"
+            ]
+          }
+        ],
+        "contexts": [
+          {
+            "name": "home",
+            "when": {
+              "any": [
+                "[role='main']:has([data-testid='home-icon'])"
+              ]
+            },
+            "required": [
+              {
+                "name": "home-icon",
+                "any": [
+                  "[data-testid='home-icon']"
+                ]
+              },
+              {
+                "name": "home-title",
+                "any": [
+                  "[data-feature='game-source']"
+                ]
+              }
+            ],
+            "recommended": [
+              {
+                "name": "home-game-card-grid",
+                "any": [
+                  ".group\\/home-suggestions .grid > div:nth-child(4) button.min-h-26"
+                ]
+              },
+              {
+                "name": "home-suggestions",
+                "any": [
+                  ".group\\/home-suggestions"
+                ]
+              },
+              {
+                "name": "project-selector",
+                "any": [
+                  ".group\\/project-selector"
+                ]
+              },
+              {
+                "name": "composer-control-grid",
+                "any": [
+                  ".composer-surface-chrome .grid:has(.ProseMirror)"
+                ]
+              },
+              {
+                "name": "composer-add-files",
+                "any": [
+                  ".composer-surface-chrome .col-start-1.row-start-2 button.aspect-square"
+                ]
+              },
+              {
+                "name": "composer-submit",
+                "any": [
+                  ".composer-surface-chrome button.size-token-button-composer"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "conversation",
+            "when": {
+              "any": [
+                ".thread-scroll-container"
+              ]
+            },
+            "required": [
+              {
+                "name": "thread-scroll",
+                "any": [
+                  ".thread-scroll-container"
+                ]
+              },
+              {
+                "name": "conversation-editor",
+                "any": [
+                  ".composer-surface-chrome .ProseMirror"
+                ]
+              }
+            ],
+            "recommended": [
+              {
+                "name": "activity-header",
+                "any": [
+                  ".group\\/activity-header"
+                ]
+              },
+              {
+                "name": "composer-control-grid",
+                "any": [
+                  ".composer-surface-chrome .grid:has(.ProseMirror)"
+                ]
+              },
+              {
+                "name": "composer-add-files",
+                "any": [
+                  ".composer-surface-chrome .col-start-1.row-start-2 button.aspect-square"
+                ]
+              },
+              {
+                "name": "composer-submit",
+                "any": [
+                  ".composer-surface-chrome button.size-token-button-composer"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "native-side-panel",
+            "when": {
+              "any": [
+                "#workspace-directory-tree-search"
+              ]
+            },
+            "required": [
+              {
+                "name": "native-side-panel-surface",
+                "any": [
+                  "#workspace-directory-tree-search"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "markdown-file-table",
+            "when": {
+              "any": [
+                ".cm-editor .cm-markdown-table-row"
+              ]
+            },
+            "required": [
+              {
+                "name": "markdown-table-cells",
+                "any": [
+                  ".cm-editor .cm-markdown-table-cell"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "file-source-preview",
+            "when": {
+              "any": [
+                "diffs-container"
+              ]
+            },
+            "required": [
+              {
+                "name": "file-source-preview-surface",
+                "any": [
+                  "diffs-container"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "inline-diff-review",
+            "when": {
+              "any": [
+                ".group\\/turn-diff-header"
+              ]
+            },
+            "required": [
+              {
+                "name": "inline-diff-header",
+                "any": [
+                  ".group\\/turn-diff-header"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "menu",
+            "when": {
+              "any": [
+                "[role='menu'][data-state='open']"
+              ]
+            },
+            "required": [
+              {
+                "name": "menu-surface",
+                "any": [
+                  "[role='menu'][data-state='open']"
+                ]
+              },
+              {
+                "name": "menu-radio-items",
+                "any": [
+                  "[role='menu'] [role='menuitemradio']"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

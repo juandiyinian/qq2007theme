@@ -1,0 +1,1498 @@
+/* QQ 2007 Inspired · Codex — based only on selectors from fresh live snapshots. */
+:root.codedrobe-host-codex {
+  color-scheme: light !important;
+  --qq-titlebar-height: 46px;
+  --qq-profile-top: calc(var(--qq-titlebar-height) + 6px);
+  --qq-profile-height: 52px;
+  --qq-blue-900: #124f89;
+  --qq-blue-700: #087fd1;
+  --qq-blue-500: #35a9ef;
+  --qq-blue-300: #8ed1f7;
+  --qq-blue-100: #dff2ff;
+  --qq-blue-050: #f3faff;
+  --qq-surface: #ffffff;
+  --qq-ink: #153656;
+  --qq-muted: #5c7892;
+  --qq-border: #75add4;
+  --qq-border-dark: #3b88c2;
+  --qq-focus: #ffb12b;
+  --qq-shadow: rgba(22, 89, 139, .20);
+  --qq-font-ui: "Microsoft YaHei UI", "Microsoft YaHei", "微软雅黑", "PingFang SC", sans-serif;
+  --qq-font-body: "Microsoft YaHei UI", "Microsoft YaHei", "微软雅黑", "PingFang SC", sans-serif;
+  --qq-font-title: "Microsoft YaHei UI", "Microsoft YaHei", "微软雅黑", "PingFang SC", sans-serif;
+  --qq-font-code: "Microsoft YaHei UI", "Microsoft YaHei", "微软雅黑", "PingFang SC", sans-serif;
+  --qq-font-badge: "Microsoft YaHei UI", "Microsoft YaHei", "微软雅黑", "PingFang SC", sans-serif;
+
+  --color-token-bg-primary: var(--qq-blue-050) !important;
+  --color-token-bg-secondary: #eaf6ff !important;
+  --color-token-main-surface-primary: var(--qq-surface) !important;
+  --color-token-side-bar-background: #e8f5ff !important;
+  --color-token-foreground: var(--qq-ink) !important;
+  --color-token-text-primary: var(--qq-ink) !important;
+  --color-token-text-secondary: #426b8d !important;
+  --color-token-text-tertiary: var(--qq-muted) !important;
+  --color-token-muted-foreground: var(--qq-muted) !important;
+  --color-token-description-foreground: #426b8d !important;
+  --color-token-border: var(--qq-border) !important;
+  --color-token-border-heavy: var(--qq-border-dark) !important;
+  --color-token-input-background: #fbfdff !important;
+  --color-token-input-border: var(--qq-border-dark) !important;
+  --color-token-dropdown-background: #f7fbff !important;
+  --color-token-list-hover-background: #d7efff !important;
+  --color-token-list-active-selection-background: #b9e1fb !important;
+  --color-token-link: #006fbd !important;
+  --color-token-primary: var(--qq-blue-700) !important;
+  --color-token-focus-border: var(--qq-focus) !important;
+}
+
+html.codedrobe-host-codex body {
+  background:
+    linear-gradient(180deg, #2aa9f5 0 3px, #e9f6ff 3px 36px, #c9e9ff 36px 37px, #eff9ff 37px 100%) !important;
+  color: var(--qq-ink) !important;
+  font-family: var(--qq-font-body) !important;
+}
+
+html.codedrobe-host-codex :is(button, input, textarea, select, [role="menuitem"], [role="menuitemradio"], [role="menuitemcheckbox"]) {
+  font-family: var(--qq-font-ui) !important;
+  font-weight: 400;
+}
+
+html.codedrobe-host-codex :is(h1, h2, h3, h4, h5, h6),
+html.codedrobe-host-codex .app-header-tint,
+html.codedrobe-host-codex .group\/nav-section-title {
+  font-family: var(--qq-font-title) !important;
+  font-weight: 700 !important;
+}
+
+html.codedrobe-host-codex .app-header-tint {
+  background: linear-gradient(180deg, #fcfeff 0%, #dff2ff 46%, #9ed6fa 100%) !important;
+  border-bottom: 1px solid var(--qq-border-dark) !important;
+  color: var(--qq-blue-900) !important;
+  box-shadow: inset 0 1px #fff, 0 1px rgba(255, 255, 255, .75) !important;
+  backdrop-filter: none !important;
+}
+
+html.codedrobe-host-codex .group\/application-menu-top-bar {
+  position: relative !important;
+  padding-left: 8px !important;
+  background: linear-gradient(
+    180deg,
+    #003b91 0%,
+    #0047ad 4%,
+    #075fca 13%,
+    #0d76df 30%,
+    #188cf0 49%,
+    #1385ea 60%,
+    #0a70d7 76%,
+    #045bbb 90%,
+    #00479e 97%,
+    #75aae5 100%
+  ) !important;
+  border-top: 1px solid #002f7d !important;
+  border-bottom: 1px solid #83b5ea !important;
+  box-shadow:
+    inset 0 2px 3px rgba(0, 26, 82, .82),
+    inset 0 -1px rgba(197, 226, 255, .72) !important;
+}
+
+html.codedrobe-host-codex .group\/application-menu-top-bar::before {
+  content: "QQ 2007 - Chat / Work";
+  flex: 0 1 auto;
+  min-width: 112px;
+  max-width: 180px;
+  overflow: hidden;
+  color: #fff;
+  font: 700 13px/20px var(--qq-font-title);
+  letter-spacing: .1px;
+  text-overflow: ellipsis;
+  text-shadow: 1px 1px 2px rgba(0, 28, 92, .82);
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* The three native caption hit targets stay untouched; this is only their QQ2007 skin. */
+html.codedrobe-host-codex .group\/application-menu-top-bar::after {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  right: 0;
+  width: 138px;
+  height: 36px;
+  background:
+    linear-gradient(#fff, #fff) 17px 20px / 12px 2px no-repeat,
+    linear-gradient(#fff, #fff) 64px 11px / 11px 2px no-repeat,
+    linear-gradient(#fff, #fff) 64px 20px / 11px 2px no-repeat,
+    linear-gradient(#fff, #fff) 64px 11px / 2px 11px no-repeat,
+    linear-gradient(#fff, #fff) 73px 11px / 2px 11px no-repeat,
+    linear-gradient(45deg, transparent 41%, #fff 42% 58%, transparent 59%) 109px 10px / 12px 12px no-repeat,
+    linear-gradient(-45deg, transparent 41%, #fff 42% 58%, transparent 59%) 109px 10px / 12px 12px no-repeat,
+    linear-gradient(180deg, rgba(255,255,255,.9), rgba(255,255,255,0) 26%) 11px 5px / 24px 24px no-repeat,
+    linear-gradient(180deg, #71bdff 0%, #2b91f2 48%, #0866cc 52%, #0b56b2 100%) 11px 5px / 24px 24px no-repeat,
+    linear-gradient(180deg, #cbe9ff, #4d8bd0) 10px 4px / 26px 26px no-repeat,
+    linear-gradient(180deg, rgba(255,255,255,.9), rgba(255,255,255,0) 26%) 57px 5px / 24px 24px no-repeat,
+    linear-gradient(180deg, #71bdff 0%, #2b91f2 48%, #0866cc 52%, #0b56b2 100%) 57px 5px / 24px 24px no-repeat,
+    linear-gradient(180deg, #cbe9ff, #4d8bd0) 56px 4px / 26px 26px no-repeat,
+    linear-gradient(180deg, rgba(255,255,255,.88), rgba(255,255,255,0) 24%) 103px 5px / 24px 24px no-repeat,
+    linear-gradient(180deg, #ff9675 0%, #f15e38 46%, #d63618 52%, #aa210e 100%) 103px 5px / 24px 24px no-repeat,
+    linear-gradient(180deg, #ffd3c7, #b9361e) 102px 4px / 26px 26px no-repeat;
+  filter: drop-shadow(0 1px 0 rgba(0, 38, 105, .65));
+  pointer-events: none;
+}
+
+html.codedrobe-host-codex .group\/application-menu-top-bar > div:has(> button.aspect-square) {
+  margin-left: auto !important;
+}
+
+html.codedrobe-host-codex .group\/application-menu-top-bar > .gap-0\.5 {
+  padding-right: 4px !important;
+  padding-left: 2px !important;
+}
+
+html.codedrobe-host-codex .group\/application-menu-top-bar button {
+  border-radius: 3px !important;
+  color: #fff !important;
+  text-shadow: 0 1px 1px rgba(0, 35, 105, .75);
+}
+
+html.codedrobe-host-codex .group\/application-menu-top-bar button:is(:hover, :focus-visible, [data-state="open"]) {
+  border-color: rgba(255,255,255,.48) !important;
+  background: linear-gradient(180deg, rgba(114,177,255,.76), rgba(13,83,203,.82)) !important;
+  box-shadow: inset 0 1px rgba(255,255,255,.5) !important;
+}
+
+html.codedrobe-host-codex .group\/application-menu-top-bar * {
+  color: #fff !important;
+}
+
+@media (max-width: 900px) {
+  html.codedrobe-host-codex .group\/application-menu-top-bar::before {
+    min-width: 96px;
+  }
+}
+
+/* Current macOS Codex has no renderer-owned application menu bar.
+   Recreate the QQ chrome as a noninteractive visual layer on the stable root. */
+html.codedrobe-host-codex:not(:has(.group\/application-menu-top-bar)) #root::before {
+  content: "";
+  position: fixed;
+  z-index: 2147483000;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: var(--qq-titlebar-height);
+  border-top: 1px solid #002f7d;
+  border-bottom: 1px solid #83b5ea;
+  background:
+    linear-gradient(45deg, transparent 41%, #fff 42% 58%, transparent 59%) right 17px top 16px / 14px 14px no-repeat,
+    linear-gradient(-45deg, transparent 41%, #fff 42% 58%, transparent 59%) right 17px top 16px / 14px 14px no-repeat,
+    linear-gradient(#fff, #fff) right 54px top 16px / 12px 2px no-repeat,
+    linear-gradient(#fff, #fff) right 54px top 26px / 12px 2px no-repeat,
+    linear-gradient(#fff, #fff) right 64px top 16px / 2px 12px no-repeat,
+    linear-gradient(#fff, #fff) right 54px top 16px / 2px 12px no-repeat,
+    linear-gradient(#fff, #fff) right 90px top 26px / 12px 2px no-repeat,
+    linear-gradient(180deg, #ff9675 0%, #f15e38 46%, #d63618 52%, #aa210e 100%) right 8px top 10px / 32px 26px no-repeat,
+    linear-gradient(180deg, #71bdff 0%, #2b91f2 48%, #0866cc 52%, #0b56b2 100%) right 44px top 10px / 32px 26px no-repeat,
+    linear-gradient(180deg, #71bdff 0%, #2b91f2 48%, #0866cc 52%, #0b56b2 100%) right 80px top 10px / 32px 26px no-repeat,
+    linear-gradient(180deg, #ffd3c7, #9f210d) right 7px top 9px / 34px 28px no-repeat,
+    linear-gradient(180deg, #cbe9ff, #3f78bd) right 43px top 9px / 34px 28px no-repeat,
+    linear-gradient(180deg, #cbe9ff, #3f78bd) right 79px top 9px / 34px 28px no-repeat,
+    linear-gradient(180deg, #003b91 0%, #0047ad 4%, #075fca 13%, #0d76df 30%, #188cf0 49%, #1385ea 60%, #0a70d7 76%, #045bbb 90%, #00479e 97%, #75aae5 100%);
+  box-shadow:
+    inset 0 2px 3px rgba(0, 26, 82, .82),
+    inset 0 -1px rgba(197, 226, 255, .72);
+  pointer-events: none;
+}
+
+html.codedrobe-host-codex:not(:has(.group\/application-menu-top-bar)) #root::after {
+  content: "QQ 2007 - Chat / Work      ←     →      文件    编辑    视图    帮助";
+  position: fixed;
+  z-index: 2147483001;
+  top: 0;
+  left: 92px;
+  display: flex;
+  align-items: center;
+  height: var(--qq-titlebar-height);
+  color: #fff;
+  font: 700 13px/1 var(--qq-font-title);
+  letter-spacing: .1px;
+  text-shadow: 1px 1px 2px rgba(0, 28, 92, .82);
+  white-space: pre;
+  pointer-events: none;
+  user-select: none;
+}
+
+html.codedrobe-host-codex aside.app-shell-left-panel {
+  background:
+    linear-gradient(
+      180deg,
+      #003b91 0%,
+      #0047ad 4%,
+      #075fca 13%,
+      #0d76df 30%,
+      #188cf0 49%,
+      #1385ea 60%,
+      #0a70d7 76%,
+      #045bbb 90%,
+      #00479e 97%,
+      #75aae5 100%
+    ) 0 0 / 100% var(--qq-titlebar-height) no-repeat,
+    linear-gradient(90deg, #f8fcff 0%, #eaf6ff 72%, #d7efff 100%) !important;
+  border-right: 1px solid var(--qq-border-dark) !important;
+  box-shadow:
+    inset -1px 0 #fff,
+    inset 0 2px 3px rgba(0, 26, 82, .82),
+    inset 0 -1px rgba(197, 226, 255, .72) !important;
+  color: var(--qq-ink) !important;
+}
+
+html.codedrobe-host-codex aside.app-shell-left-panel::before {
+  content: "我在线上  ▾";
+  position: absolute;
+  z-index: 2;
+  top: var(--qq-profile-top);
+  right: 7px;
+  left: 7px;
+  height: var(--qq-profile-height);
+  box-sizing: border-box;
+  padding: 28px 6px 4px 70px;
+  border-bottom: 1px solid #87b9dc;
+  background:
+    var(--codedrobe-image-sidebar-avatar) 6px center / 44px 44px no-repeat,
+    linear-gradient(180deg, #fbfeff, #d8efff);
+  color: #174e77;
+  font: 400 12px/16px var(--qq-font-ui);
+  white-space: pre-line;
+  pointer-events: none;
+  user-select: none;
+}
+
+html.codedrobe-host-codex aside.app-shell-left-panel::after {
+  content: "Codex";
+  position: absolute;
+  z-index: 3;
+  top: var(--qq-profile-top);
+  right: 7px;
+  left: 7px;
+  height: 26px;
+  box-sizing: border-box;
+  padding: 6px 6px 2px 70px;
+  background:
+    linear-gradient(45deg, transparent 42%, #fff 43% 62%, transparent 63%) 57px 13px / 4px 7px no-repeat,
+    linear-gradient(-45deg, transparent 42%, #fff 43% 62%, transparent 63%) 60px 11px / 7px 4px no-repeat;
+  color: #153656;
+  font: 700 13px/18px var(--qq-font-title);
+  pointer-events: none;
+  user-select: none;
+}
+
+html.codedrobe-host-codex aside.app-shell-left-panel * {
+  color: var(--qq-ink) !important;
+  font-family: var(--qq-font-ui) !important;
+}
+
+html.codedrobe-host-codex aside.app-shell-left-panel [role="navigation"] {
+  background: linear-gradient(180deg, rgba(255,255,255,.78), rgba(221,241,255,.72)) !important;
+  padding-top: 70px !important;
+}
+
+html.codedrobe-host-codex aside.app-shell-left-panel div:has(> button.ml-auto) {
+  position: relative !important;
+  z-index: 20 !important;
+  min-height: 32px !important;
+  margin-left: 8px !important;
+  padding: 0 4px 0 0 !important;
+  gap: 6px !important;
+}
+
+html.codedrobe-host-codex aside.app-shell-left-panel button.ml-auto {
+  position: relative !important;
+  z-index: 2 !important;
+  top: auto !important;
+  right: auto !important;
+  left: auto !important;
+  flex: 0 0 28px !important;
+  width: 28px !important;
+  min-width: 28px !important;
+  height: 28px !important;
+  margin-left: auto !important;
+  padding: 5px !important;
+  justify-content: center !important;
+  border: 1px solid #5f9fd0 !important;
+  border-radius: 4px !important;
+  background: linear-gradient(180deg, #fff, #d9efff) !important;
+  color: #24658f !important;
+  box-shadow: inset 0 1px #fff !important;
+  transform: none !important;
+}
+
+html.codedrobe-host-codex aside.app-shell-left-panel button.ml-auto > svg {
+  display: block !important;
+  width: 16px !important;
+  height: 16px !important;
+  opacity: 1 !important;
+  color: #24658f !important;
+}
+
+html.codedrobe-host-codex aside.app-shell-left-panel button.ml-auto::before {
+  content: none !important;
+  display: none !important;
+}
+
+html.codedrobe-host-codex aside.app-shell-left-panel button.ml-auto::after {
+  content: none !important;
+  display: none !important;
+}
+
+html.codedrobe-host-codex aside.app-shell-left-panel button.ml-auto:is(:hover, :focus-visible) {
+  border-color: #267fc0 !important;
+  background: linear-gradient(180deg, #fff, #eef9ff) !important;
+  outline: 1px solid rgba(38,127,192,.28) !important;
+  outline-offset: 1px !important;
+}
+
+html.codedrobe-host-codex aside.app-shell-left-panel span:has(> svg.icon-xs) {
+  background-image: var(--qq-sidebar-icon, none);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 30px 30px;
+}
+
+html.codedrobe-host-codex aside.app-shell-left-panel span:has(> svg.icon-xs) > svg.icon-xs {
+  opacity: var(--qq-native-icon-opacity, 1) !important;
+}
+
+html.codedrobe-host-codex aside.app-shell-left-panel
+  nav > .relative.z-10 > .flex.flex-col.gap-1
+  span:has(> svg.icon-xs) {
+  --qq-sidebar-icon: var(--codedrobe-image-sidebar-new-task);
+  --qq-native-icon-opacity: 0;
+}
+
+html.codedrobe-host-codex aside.app-shell-left-panel
+  nav > .vertical-scroll-fade-mask > div:first-child button:nth-of-type(1)
+  span:has(> svg.icon-xs) {
+  --qq-sidebar-icon: var(--codedrobe-image-sidebar-pull-request);
+  --qq-native-icon-opacity: 0;
+}
+
+html.codedrobe-host-codex aside.app-shell-left-panel
+  nav > .vertical-scroll-fade-mask > div:first-child button:nth-of-type(2)
+  span:has(> svg.icon-xs) {
+  --qq-sidebar-icon: var(--codedrobe-image-sidebar-sites);
+  --qq-native-icon-opacity: 0;
+}
+
+html.codedrobe-host-codex aside.app-shell-left-panel
+  nav > .vertical-scroll-fade-mask > div:first-child button:nth-of-type(3)
+  span:has(> svg.icon-xs) {
+  --qq-sidebar-icon: var(--codedrobe-image-sidebar-scheduled);
+  --qq-native-icon-opacity: 0;
+}
+
+html.codedrobe-host-codex aside.app-shell-left-panel
+  nav > .vertical-scroll-fade-mask > div:first-child button:nth-of-type(4)
+  span:has(> svg.icon-xs) {
+  --qq-sidebar-icon: var(--codedrobe-image-sidebar-plugins);
+  --qq-native-icon-opacity: 0;
+}
+
+html.codedrobe-host-codex aside.app-shell-left-panel
+  .group\/folder-row span:has(> svg.icon-xs.shrink-0) {
+  --qq-sidebar-icon: var(--codedrobe-image-sidebar-project-folder);
+  --qq-native-icon-opacity: 0;
+}
+
+html.codedrobe-host-codex aside.app-shell-left-panel .group\/nav-section-title {
+  min-height: 22px !important;
+  margin: 8px 4px 1px !important;
+  padding: 4px 5px 0 !important;
+  border: 0 !important;
+  border-top: 1px solid #bfdbea !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  color: #347ba9 !important;
+  box-shadow: 0 -1px rgba(255,255,255,.86) !important;
+  transition: color .12s linear !important;
+}
+
+html.codedrobe-host-codex aside.app-shell-left-panel .group\/nav-section-title:hover {
+  border-top-color: #a9cfe5 !important;
+  background: transparent !important;
+  color: #075fae !important;
+  box-shadow: 0 -1px rgba(255,255,255,.94) !important;
+}
+
+html.codedrobe-host-codex aside.app-shell-left-panel
+  .group\/nav-section-title:has(.group\/section-toggle[aria-expanded="true"]) {
+  border-top-color: #b5d5e8 !important;
+  background: transparent !important;
+  color: #075fae !important;
+  box-shadow: 0 -1px rgba(255,255,255,.9) !important;
+}
+
+html.codedrobe-host-codex aside.app-shell-left-panel
+  .group\/nav-section-title .group\/section-toggle {
+  min-height: 17px !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+  color: inherit !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  line-height: 17px !important;
+}
+
+html.codedrobe-host-codex aside.app-shell-left-panel
+  .group\/nav-section-title .group\/section-toggle:is(:hover, :focus-visible) {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+html.codedrobe-host-codex aside.app-shell-left-panel
+  .vertical-scroll-fade-mask [role="listitem"].flex.gap-1.py-1.px-8 {
+  min-height: 22px !important;
+  padding: 2px 5px 2px 32px !important;
+}
+
+html.codedrobe-host-codex aside.app-shell-left-panel
+  .vertical-scroll-fade-mask [role="listitem"].flex.gap-1.py-1.px-8 > button {
+  width: auto !important;
+  min-height: 18px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  justify-content: flex-start !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  color: #3a7fab !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  line-height: 18px !important;
+  opacity: 1 !important;
+  box-shadow: none !important;
+  text-shadow: 0 1px rgba(255,255,255,.86) !important;
+}
+
+html.codedrobe-host-codex aside.app-shell-left-panel
+  .vertical-scroll-fade-mask [role="listitem"].flex.gap-1.py-1.px-8 > button:is(:hover, :focus-visible) {
+  background: transparent !important;
+  color: #075fae !important;
+  box-shadow: none !important;
+}
+
+html.codedrobe-host-codex aside.app-shell-left-panel :is(a, button, [role="button"]) {
+  border-radius: 3px !important;
+  color: var(--qq-ink) !important;
+  transition: background .12s linear, border-color .12s linear, box-shadow .12s linear, color .12s linear !important;
+}
+
+html.codedrobe-host-codex aside.app-shell-left-panel :is(a, button, [role="button"]):hover {
+  background: linear-gradient(180deg, #fff 0%, #e8f7ff 44%, #c2e6fb 100%) !important;
+  box-shadow:
+    inset 0 0 0 1px #78b5dc,
+    inset 0 1px 0 #fff,
+    inset 0 -1px 0 rgba(80,151,199,.42),
+    0 1px 2px rgba(45,116,164,.16) !important;
+}
+
+html.codedrobe-host-codex aside.app-shell-left-panel :is([aria-current="page"], [aria-selected="true"]) {
+  background: linear-gradient(180deg, #f5fbff 0%, #ccecff 43%, #9fd3f3 100%) !important;
+  box-shadow:
+    inset 0 0 0 1px #378dca,
+    inset 0 1px 0 #fff,
+    inset 1px 0 0 rgba(255,255,255,.68),
+    inset 0 -1px 0 #63a7d5,
+    0 1px 2px rgba(27,98,150,.24) !important;
+}
+
+html.codedrobe-host-codex aside.app-shell-left-panel
+  :is([aria-current="page"], [aria-selected="true"]),
+html.codedrobe-host-codex aside.app-shell-left-panel
+  :is([aria-current="page"], [aria-selected="true"]) *,
+html.codedrobe-host-codex aside.app-shell-left-panel
+  .group\/nav-section-title:has(.group\/section-toggle[aria-expanded="true"]),
+html.codedrobe-host-codex aside.app-shell-left-panel
+  .group\/nav-section-title:has(.group\/section-toggle[aria-expanded="true"]) * {
+  color: #075fae !important;
+  text-shadow: 0 1px rgba(255,255,255,.82) !important;
+}
+
+html.codedrobe-host-codex .sidebar-resize-handle-line {
+  background: linear-gradient(180deg, transparent, var(--qq-blue-700), transparent) !important;
+}
+
+html.codedrobe-host-codex main.main-surface {
+  position: relative !important;
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+  background: var(--qq-surface) !important;
+  border: 1px solid var(--qq-border-dark) !important;
+  border-radius: 3px 0 0 0 !important;
+  box-shadow: inset 0 0 0 1px #eaf6ff, -2px 0 5px var(--qq-shadow) !important;
+}
+
+html.codedrobe-host-codex .app-shell-main-content-frame,
+html.codedrobe-host-codex .app-shell-main-content-viewport {
+  background: linear-gradient(180deg, #f7fcff 0 38px, #fff 38px 100%) !important;
+}
+
+html.codedrobe-host-codex .app-shell-main-content-frame {
+  box-sizing: border-box !important;
+}
+
+html.codedrobe-host-codex [role="main"],
+html.codedrobe-host-codex .thread-scroll-container {
+  background: linear-gradient(180deg, #fbfdff, #fff 22%, #f8fcff 100%) !important;
+  color: var(--qq-ink) !important;
+}
+
+html.codedrobe-host-codex [role="main"]:has([data-testid="home-icon"]) {
+  position: relative !important;
+  background:
+    radial-gradient(circle at 50% 27%, rgba(116, 198, 246, .24), transparent 23%),
+    linear-gradient(180deg, #f7fcff, #fff 45%, #eaf7ff) !important;
+}
+
+html.codedrobe-host-codex [role="main"]:has([data-testid="home-icon"])::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  top: 7px;
+  right: 4px;
+  left: 4px;
+  height: 141px;
+  box-sizing: border-box;
+  overflow: hidden;
+  border: 1px solid #4d9bd0;
+  border-radius: 3px;
+  background-image: var(--codedrobe-image-home-game-hall);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .7), 0 1px 3px rgba(22, 89, 139, .22);
+  pointer-events: none;
+  user-select: none;
+}
+
+html.codedrobe-host-codex [data-testid="home-icon"] {
+  border: 1px solid #4a9bd3 !important;
+  border-radius: 4px !important;
+  background: linear-gradient(135deg, #f8fdff, #aadaf6) !important;
+  color: var(--qq-blue-700) !important;
+  opacity: 1 !important;
+  box-shadow: inset 0 1px #fff, 0 2px 5px var(--qq-shadow) !important;
+}
+
+html.codedrobe-host-codex [data-feature="game-source"] {
+  color: var(--qq-blue-900) !important;
+  text-shadow: 0 1px #fff !important;
+}
+
+/* QQ 游戏大厅：四个原生建议按钮保留行为，仅替换其视觉内容。 */
+html.codedrobe-host-codex .group\/home-suggestions > * {
+  border: 0 !important;
+  border-radius: 5px !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+html.codedrobe-host-codex .group\/home-suggestions button.min-h-26 {
+  position: relative !important;
+  min-height: 112px !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 7px !important;
+  overflow: hidden !important;
+  padding: 11px 12px 10px !important;
+  border: 1px solid #7eb9df !important;
+  border-radius: 5px !important;
+  background: linear-gradient(180deg, #fafdff 0%, #e7f5ff 54%, #d7edfc 100%) !important;
+  color: #183c5d !important;
+  box-shadow:
+    inset 0 1px 0 #fff,
+    inset 0 -1px 0 rgba(89, 155, 199, .18),
+    0 1px 2px rgba(34, 103, 150, .18) !important;
+  transition: border-color 120ms ease, box-shadow 120ms ease, filter 120ms ease, transform 80ms ease !important;
+}
+
+html.codedrobe-host-codex .group\/home-suggestions button.min-h-26 > span {
+  opacity: 0 !important;
+  position: absolute !important;
+  pointer-events: none !important;
+}
+
+html.codedrobe-host-codex .group\/home-suggestions button.min-h-26::before {
+  content: "";
+  display: block;
+  width: 62px;
+  height: 62px;
+  flex: 0 0 62px;
+  background-image: var(--codedrobe-image-home-game-icons);
+  background-repeat: no-repeat;
+  background-size: 124px 124px;
+  image-rendering: auto;
+  pointer-events: none;
+}
+
+html.codedrobe-host-codex .group\/home-suggestions button.min-h-26::after {
+  display: block;
+  font-family: var(--qq-font-ui);
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: 600;
+  letter-spacing: .02em;
+  color: #173c5f;
+  text-align: center;
+  text-shadow: 0 1px 0 #fff;
+  pointer-events: none;
+}
+
+html.codedrobe-host-codex .group\/home-suggestions .grid > div:nth-child(1) button::before {
+  background-position: 0 0;
+}
+
+html.codedrobe-host-codex .group\/home-suggestions .grid > div:nth-child(1) button::after {
+  content: "斗地主";
+}
+
+html.codedrobe-host-codex .group\/home-suggestions .grid > div:nth-child(2) button::before {
+  background-position: 100% 0;
+}
+
+html.codedrobe-host-codex .group\/home-suggestions .grid > div:nth-child(2) button::after {
+  content: "中国象棋";
+}
+
+html.codedrobe-host-codex .group\/home-suggestions .grid > div:nth-child(3) button::before {
+  background-position: 0 100%;
+}
+
+html.codedrobe-host-codex .group\/home-suggestions .grid > div:nth-child(3) button::after {
+  content: "五子棋";
+}
+
+html.codedrobe-host-codex .group\/home-suggestions .grid > div:nth-child(4) button::before {
+  background-position: 100% 100%;
+}
+
+html.codedrobe-host-codex .group\/home-suggestions .grid > div:nth-child(4) button::after {
+  content: "QQ堂";
+}
+
+html.codedrobe-host-codex .group\/home-suggestions button.min-h-26:hover {
+  border-color: #2f93d1 !important;
+  filter: saturate(1.06) brightness(1.015) !important;
+  box-shadow:
+    inset 0 1px 0 #fff,
+    inset 0 0 0 1px rgba(126, 196, 238, .45),
+    0 0 0 1px rgba(47, 147, 209, .14),
+    0 2px 5px rgba(34, 103, 150, .24) !important;
+}
+
+html.codedrobe-host-codex .group\/home-suggestions button.min-h-26:active {
+  transform: translateY(1px) !important;
+  background: linear-gradient(180deg, #d6ecfb, #edf8ff) !important;
+  box-shadow: inset 0 1px 3px rgba(27, 91, 137, .2) !important;
+}
+
+html.codedrobe-host-codex .group\/home-suggestions button.min-h-26:focus-visible {
+  outline: 2px solid #168bd2 !important;
+  outline-offset: 2px !important;
+}
+
+html.codedrobe-host-codex .group\/project-selector {
+  border: 1px solid #9fc8e5 !important;
+  border-radius: 3px !important;
+  background: linear-gradient(180deg, #fff, #e0f2ff) !important;
+}
+
+html.codedrobe-host-codex .composer-surface-chrome {
+  --qq-composer-toolbar-height: 30px;
+  --qq-composer-editor-min-height: 92px;
+  --qq-composer-status-height: 38px;
+  box-sizing: border-box !important;
+  min-height: calc(
+    var(--qq-composer-toolbar-height) +
+    var(--qq-composer-editor-min-height) +
+    var(--qq-composer-status-height) +
+    2px
+  ) !important;
+  overflow: hidden !important;
+  border: 1px solid var(--qq-border-dark) !important;
+  border-radius: 3px !important;
+  background: #fff !important;
+  color: var(--qq-ink) !important;
+  box-shadow: inset 0 1px #fff, 0 1px 2px rgba(22, 89, 139, .18) !important;
+  backdrop-filter: none !important;
+  font-family: var(--qq-font-ui) !important;
+}
+
+/*
+ * Codex 26.715 composer structure from the live snapshot:
+ * 14px top spacer -> editor row -> native controls row.
+ * The stable composer root owns the decorative toolbar; every native control remains usable.
+ */
+html.codedrobe-host-codex .composer-surface-chrome > .relative.flex.flex-col {
+  min-height: calc(
+    var(--qq-composer-toolbar-height) +
+    var(--qq-composer-editor-min-height) +
+    var(--qq-composer-status-height)
+  ) !important;
+}
+
+html.codedrobe-host-codex
+  .composer-surface-chrome
+  > .relative.flex.flex-col
+  > .contents:first-child
+  > :first-child,
+html.codedrobe-host-codex
+  .composer-surface-chrome
+  > .relative.flex.flex-col
+  > :first-child:not(.contents) {
+  box-sizing: border-box !important;
+  min-height: var(--qq-composer-toolbar-height) !important;
+}
+
+html.codedrobe-host-codex .composer-surface-chrome::before {
+  content: "";
+  position: absolute !important;
+  z-index: 11;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: var(--qq-composer-toolbar-height);
+  box-sizing: border-box;
+  overflow: hidden !important;
+  border-bottom: 1px solid #82b9dd !important;
+  background:
+    var(--codedrobe-image-composer-toolbar-icons) 8px 4px / 132px 18px no-repeat,
+    linear-gradient(180deg, #fafdff 0%, #dff2ff 58%, #c7e8fb 100%) !important;
+  box-shadow: inset 0 1px #fff, inset 0 -1px rgba(255, 255, 255, .55) !important;
+  pointer-events: none !important;
+  user-select: none !important;
+}
+
+html.codedrobe-host-codex .composer-surface-chrome::after {
+  content: none;
+}
+
+html.codedrobe-host-codex .composer-surface-chrome .grid:has(.ProseMirror) {
+  min-height: calc(
+    var(--qq-composer-editor-min-height) +
+    var(--qq-composer-status-height)
+  ) !important;
+  grid-template-rows: minmax(var(--qq-composer-editor-min-height), auto) var(--qq-composer-status-height) !important;
+  gap: 0 5px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  background: linear-gradient(
+    180deg,
+    #fff 0,
+    #fff calc(100% - var(--qq-composer-status-height)),
+    #edf8ff calc(100% - var(--qq-composer-status-height)),
+    #d9effd 100%
+  ) !important;
+}
+
+html.codedrobe-host-codex .composer-surface-chrome .grid:has(.ProseMirror) > .col-span-full:has(.ProseMirror) {
+  min-height: var(--qq-composer-editor-min-height) !important;
+  margin: 0 !important;
+  border-bottom: 1px solid #9cc8e5 !important;
+  background: #fff !important;
+  box-shadow: inset 0 1px 2px rgba(31, 91, 133, .08) !important;
+}
+
+html.codedrobe-host-codex .composer-surface-chrome .grid:has(.ProseMirror) > .col-span-full:has(.ProseMirror) > .flex-grow {
+  box-sizing: border-box !important;
+  min-height: var(--qq-composer-editor-min-height) !important;
+  margin: 0 !important;
+  padding: 10px 12px 8px !important;
+  background: #fff !important;
+}
+
+html.codedrobe-host-codex .composer-surface-chrome .text-size-chat:has(.ProseMirror) {
+  min-height: 72px !important;
+  color: var(--qq-ink) !important;
+}
+
+html.codedrobe-host-codex .composer-surface-chrome :is(.ProseMirror, [contenteditable="true"]) {
+  min-height: 72px !important;
+  padding: 0 !important;
+  color: var(--qq-ink) !important;
+  caret-color: var(--qq-blue-700) !important;
+  font: 13px/20px var(--qq-font-ui) !important;
+}
+
+html.codedrobe-host-codex .composer-surface-chrome .ProseMirror .placeholder {
+  color: #7b8e9e !important;
+}
+
+html.codedrobe-host-codex .composer-surface-chrome .grid:has(.ProseMirror) > :is(.col-start-1, .col-start-3).row-start-2 {
+  position: relative !important;
+  z-index: 1 !important;
+  align-self: center !important;
+  height: 34px !important;
+}
+
+html.codedrobe-host-codex .composer-surface-chrome .grid:has(.ProseMirror) > .col-start-1.row-start-2 {
+  margin-left: 6px !important;
+}
+
+html.codedrobe-host-codex .composer-surface-chrome .grid:has(.ProseMirror) > .col-start-3.row-start-2 {
+  margin-right: 6px !important;
+}
+
+html.codedrobe-host-codex .composer-surface-chrome :is(button, [role="button"]) {
+  min-height: 24px !important;
+  border: 1px solid transparent !important;
+  border-radius: 2px !important;
+  color: #1b587f !important;
+  font-size: 12px !important;
+}
+
+html.codedrobe-host-codex .composer-surface-chrome :is(button, [role="button"]):is(:hover, :focus-visible, [data-state="open"]) {
+  border-color: #7eb4d8 !important;
+  background: linear-gradient(180deg, #fff, #cfeaff) !important;
+  box-shadow: inset 0 1px #fff !important;
+}
+
+html.codedrobe-host-codex .composer-surface-chrome .col-start-1.row-start-2 button.aspect-square {
+  width: auto !important;
+  min-width: 56px !important;
+  height: 24px !important;
+  padding: 0 6px 0 4px !important;
+  gap: 4px !important;
+  justify-content: flex-start !important;
+  aspect-ratio: auto !important;
+}
+
+html.codedrobe-host-codex .composer-surface-chrome .col-start-1.row-start-2 button.aspect-square::after {
+  content: "添加";
+  color: #2b6690;
+  font: 12px/18px var(--qq-font-ui);
+  white-space: nowrap;
+}
+
+html.codedrobe-host-codex .composer-surface-chrome .col-start-1.row-start-2 button.aspect-square svg {
+  width: 16px !important;
+  height: 16px !important;
+  box-sizing: border-box !important;
+  padding: 2px !important;
+  border: 1px solid #4f8eb9 !important;
+  border-radius: 50% !important;
+  color: #23648f !important;
+}
+
+html.codedrobe-host-codex .composer-surface-chrome button.size-token-button-composer {
+  width: 38px !important;
+  min-width: 38px !important;
+  max-width: none !important;
+  height: 24px !important;
+  min-height: 24px !important;
+  padding: 0 !important;
+  gap: 0 !important;
+  border: 1px solid #5b9bc7 !important;
+  border-radius: 2px !important;
+  background: linear-gradient(180deg, #f9fdff 0%, #c9e8fb 55%, #a9d7f4 100%) !important;
+  color: #075a91 !important;
+  box-shadow: inset 0 1px #fff, 0 1px 1px rgba(28, 92, 138, .18) !important;
+}
+
+html.codedrobe-host-codex .composer-surface-chrome button.size-token-button-composer::before {
+  content: none;
+  min-width: 0;
+  overflow: hidden;
+  color: #174f78;
+  font: 12px/18px var(--qq-font-ui);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+html.codedrobe-host-codex [role="main"]:has([data-testid="home-icon"]) .size-token-button-composer::before {
+  content: "发送(S)";
+  color: #102538 !important;
+  font-weight: 700 !important;
+  text-shadow: 0 1px #fff;
+}
+
+html.codedrobe-host-codex .composer-surface-chrome .size-token-button-composer:is([aria-label^="Send" i], [aria-label^="发送"])::before {
+  content: "发送(S)";
+  color: #102538 !important;
+  font-weight: 700 !important;
+  text-shadow: 0 1px #fff;
+}
+
+html.codedrobe-host-codex [role="main"]:has([data-testid="home-icon"]) .size-token-button-composer {
+  width: auto !important;
+  min-width: 78px !important;
+  max-width: 88px !important;
+  padding: 0 9px !important;
+  gap: 0 !important;
+}
+
+html.codedrobe-host-codex [role="main"]:has([data-testid="home-icon"]) .composer-surface-chrome {
+  min-height: 178px !important;
+}
+
+html.codedrobe-host-codex [role="main"]:has([data-testid="home-icon"])
+  .composer-surface-chrome > .relative.flex.flex-col {
+  min-height: 176px !important;
+}
+
+html.codedrobe-host-codex .composer-surface-chrome .size-token-button-composer:is([aria-label^="Send" i], [aria-label^="发送"]) {
+  width: auto !important;
+  min-width: 78px !important;
+  max-width: 88px !important;
+  padding: 0 9px !important;
+  gap: 0 !important;
+}
+
+@media (min-width: 720px) {
+  html.codedrobe-host-codex [role="main"]:has([data-testid="home-icon"]) .size-token-button-composer svg {
+    display: none !important;
+  }
+
+  html.codedrobe-host-codex .composer-surface-chrome .size-token-button-composer:is([aria-label^="Send" i], [aria-label^="发送"]) svg {
+    display: none !important;
+  }
+}
+
+html.codedrobe-host-codex .composer-surface-chrome button.size-token-button-composer svg {
+  flex: 0 0 16px !important;
+  color: #075a91 !important;
+}
+
+html.codedrobe-host-codex .composer-surface-chrome button.size-token-button-composer:is(:hover, :focus-visible) {
+  border-color: #277fb8 !important;
+  background: linear-gradient(180deg, #fff, #b8e1fa 52%, #89c7ec) !important;
+}
+
+html.codedrobe-host-codex .composer-surface-chrome button:disabled {
+  opacity: .62 !important;
+}
+
+html.codedrobe-host-codex [role="main"]:has([data-testid="home-icon"]) .size-token-button-composer:disabled {
+  opacity: 1 !important;
+}
+
+html.codedrobe-host-codex .composer-surface-chrome .size-token-button-composer:is([aria-label^="Send" i], [aria-label^="发送"]):disabled {
+  opacity: 1 !important;
+}
+
+html.codedrobe-host-codex [role="main"]:has([data-testid="home-icon"]) .size-token-button-composer:disabled svg {
+  opacity: .48 !important;
+}
+
+@media (max-width: 719px) {
+  html.codedrobe-host-codex .composer-surface-chrome .col-start-1.row-start-2 button.aspect-square {
+    width: 24px !important;
+    min-width: 24px !important;
+    padding: 0 !important;
+    justify-content: center !important;
+  }
+
+  html.codedrobe-host-codex .composer-surface-chrome .col-start-1.row-start-2 button.aspect-square::after {
+    content: none !important;
+  }
+
+  html.codedrobe-host-codex .composer-surface-chrome button.size-token-button-composer::before {
+    content: none !important;
+  }
+
+  html.codedrobe-host-codex .composer-surface-chrome button.size-token-button-composer {
+    width: 38px !important;
+    min-width: 38px !important;
+    padding: 0 !important;
+  }
+}
+
+html.codedrobe-host-codex .group\/activity-header,
+html.codedrobe-host-codex .group\/command,
+html.codedrobe-host-codex .group\/output {
+  border-color: #9bc8e7 !important;
+  border-radius: 3px !important;
+  background: #f3faff !important;
+}
+
+html.codedrobe-host-codex :is(pre, blockquote, table) {
+  border: 1px solid #8ebfe0 !important;
+  border-radius: 3px !important;
+  background: linear-gradient(180deg, #f2f9ff, #fff) !important;
+  color: #163b5d !important;
+  box-shadow: inset 0 1px #fff !important;
+}
+
+html.codedrobe-host-codex :is(pre, pre code, diffs-container) {
+  font-family: var(--qq-font-code) !important;
+}
+
+html.codedrobe-host-codex .cm-editor :is(.cm-content, .cm-line, .cm-line span) {
+  font-family: var(--qq-font-code) !important;
+}
+
+html.codedrobe-host-codex code {
+  border-radius: 2px !important;
+  background: #e5f4ff !important;
+  color: #0f568e !important;
+  font-family: var(--qq-font-code) !important;
+}
+
+html.codedrobe-host-codex .thread-scroll-container :not(pre) > code {
+  font-weight: 700 !important;
+}
+
+html.codedrobe-host-codex .thread-scroll-container .contain-inline-size > .font-sans {
+  font-family: var(--qq-font-ui) !important;
+  font-style: italic !important;
+  font-weight: 400 !important;
+}
+
+html.codedrobe-host-codex .cm-editor :is(.cm-content, .cm-line, .cm-line span) {
+  color: var(--qq-ink) !important;
+}
+
+html.codedrobe-host-codex .cm-editor .cm-markdown-table-cell {
+  color: var(--qq-ink) !important;
+}
+
+html.codedrobe-host-codex .cm-editor .cm-markdown-table-cell > span {
+  border-radius: 2px !important;
+  background-color: #e5f4ff !important;
+  color: #0f568e !important;
+}
+
+html.codedrobe-host-codex diffs-container {
+  --color-token-editor-foreground: var(--qq-ink) !important;
+  --color-token-main-surface-primary: #fff !important;
+  --color-token-diff-surface: #fff !important;
+  --codex-diffs-surface: #fff !important;
+  --diffs-fg: var(--qq-ink) !important;
+  --diffs-bg: #fff !important;
+  --diffs-dark: var(--qq-ink) !important;
+  --diffs-light: var(--qq-ink) !important;
+  background-color: #fff !important;
+  color: var(--qq-ink) !important;
+  color-scheme: light !important;
+}
+
+html.codedrobe-host-codex [role="menu"][data-state="open"] {
+  isolation: isolate !important;
+  padding: 2px !important;
+  border: 1px solid var(--qq-border-dark) !important;
+  border-radius: 3px !important;
+  background-color: #f7fbff !important;
+  background-image: linear-gradient(180deg, #f9fdff, #e4f4ff) !important;
+  color: var(--qq-ink) !important;
+  box-shadow: inset 0 1px #fff, 2px 2px 5px rgba(18,79,137,.25) !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  filter: none !important;
+  opacity: 1 !important;
+  will-change: auto !important;
+}
+
+html.codedrobe-host-codex [role="menu"] * {
+  color: var(--qq-ink) !important;
+}
+
+html.codedrobe-host-codex [role="menu"] :is([role="menuitem"], [role="menuitemradio"], [role="menuitemcheckbox"]) {
+  min-height: 22px !important;
+  padding: 2px 6px !important;
+  border: 1px solid transparent !important;
+  border-radius: 2px !important;
+  font-size: 12px !important;
+  line-height: 17px !important;
+}
+
+html.codedrobe-host-codex [role="menu"] :is([role="menuitem"], [role="menuitemradio"], [role="menuitemcheckbox"]):is(:hover, :focus) {
+  border-color: #73add6 !important;
+  background: linear-gradient(180deg, #fafdff, #c8e8ff) !important;
+}
+
+html.codedrobe-host-codex [role="menu"] .text-token-description-foreground {
+  padding: 3px 6px 2px !important;
+  color: #2f75a3 !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  line-height: 16px !important;
+}
+
+html.codedrobe-host-codex .thread-scroll-container :is(p, li) {
+  font-size: 14px !important;
+  line-height: 1.65 !important;
+  font-family: var(--qq-font-body) !important;
+}
+
+html.codedrobe-host-codex .thread-scroll-container :is(strong, b, .font-semibold) {
+  font-family: var(--qq-font-title) !important;
+  font-weight: 700 !important;
+}
+
+html.codedrobe-host-codex :is(.qq-level-badge, [data-qq-level-badge]) {
+  font-family: var(--qq-font-badge) !important;
+  font-weight: 700 !important;
+}
+
+html.codedrobe-host-codex :is(button, [role="button"]):focus-visible,
+html.codedrobe-host-codex :is(a, input, textarea, .ProseMirror, [contenteditable="true"]):focus-visible {
+  outline: 2px solid var(--qq-focus) !important;
+  outline-offset: 1px !important;
+}
+
+html.codedrobe-host-codex * {
+  scrollbar-color: #75b9e7 #eaf6ff;
+}
+
+html.codedrobe-host-codex *::-webkit-scrollbar {
+  width: 15px;
+  height: 15px;
+}
+
+html.codedrobe-host-codex *::-webkit-scrollbar-track {
+  border-left: 1px solid #9ac7e6;
+  border-right: 1px solid #d9effd;
+  background:
+    repeating-linear-gradient(135deg, rgba(125,183,222,.16) 0 1px, transparent 1px 3px),
+    linear-gradient(90deg, #f8fdff, #e0f2fd 55%, #f8fdff);
+  box-shadow: inset 1px 0 #fff, inset -1px 0 #bad9ef;
+}
+
+html.codedrobe-host-codex *::-webkit-scrollbar-thumb {
+  min-height: 34px;
+  border: 1px solid #5b9dce;
+  border-radius: 2px;
+  background:
+    linear-gradient(90deg, rgba(255,255,255,.85), transparent 24%, transparent 72%, rgba(50,129,185,.24)),
+    linear-gradient(90deg, #bfe6fb, #78bee9 48%, #9bd3f3);
+  box-shadow: inset 0 1px #eaffff, inset 1px 0 #dff5ff, inset -1px 0 #569ccd;
+}
+
+html.codedrobe-host-codex *::-webkit-scrollbar-thumb:hover {
+  background:
+    linear-gradient(90deg, rgba(255,255,255,.92), transparent 24%, transparent 72%, rgba(39,112,171,.28)),
+    linear-gradient(90deg, #d1efff, #83caf2 48%, #a7dcf8);
+}
+
+html.codedrobe-host-codex *::-webkit-scrollbar-button:single-button {
+  display: block;
+  width: 15px;
+  height: 15px;
+  border: 1px solid #69a8d3;
+  box-shadow: inset 1px 1px #fff, inset -1px -1px #a7cee7;
+}
+
+html.codedrobe-host-codex *::-webkit-scrollbar-button:single-button:vertical:decrement {
+  background:
+    linear-gradient(135deg, transparent 45%, #3579aa 46% 62%, transparent 63%) 3px 5px / 5px 6px no-repeat,
+    linear-gradient(45deg, transparent 45%, #3579aa 46% 62%, transparent 63%) 7px 5px / 5px 6px no-repeat,
+    linear-gradient(180deg, #f9fdff, #cce9fa);
+}
+
+html.codedrobe-host-codex *::-webkit-scrollbar-button:single-button:vertical:increment {
+  background:
+    linear-gradient(45deg, transparent 45%, #3579aa 46% 62%, transparent 63%) 3px 4px / 5px 6px no-repeat,
+    linear-gradient(135deg, transparent 45%, #3579aa 46% 62%, transparent 63%) 7px 4px / 5px 6px no-repeat,
+    linear-gradient(180deg, #f9fdff, #cce9fa);
+}
+
+html.codedrobe-host-codex *::-webkit-scrollbar-button:single-button:horizontal:decrement {
+  background:
+    linear-gradient(45deg, transparent 45%, #3579aa 46% 62%, transparent 63%) 5px 3px / 6px 5px no-repeat,
+    linear-gradient(135deg, transparent 45%, #3579aa 46% 62%, transparent 63%) 5px 7px / 6px 5px no-repeat,
+    linear-gradient(180deg, #f9fdff, #cce9fa);
+}
+
+html.codedrobe-host-codex *::-webkit-scrollbar-button:single-button:horizontal:increment {
+  background:
+    linear-gradient(135deg, transparent 45%, #3579aa 46% 62%, transparent 63%) 4px 3px / 6px 5px no-repeat,
+    linear-gradient(45deg, transparent 45%, #3579aa 46% 62%, transparent 63%) 4px 7px / 6px 5px no-repeat,
+    linear-gradient(180deg, #f9fdff, #cce9fa);
+}
+
+html.codedrobe-host-codex *::-webkit-scrollbar-corner {
+  border: 1px solid #8bbbdc;
+  background: #dff1fc;
+}
+
+@media (min-width: 1180px) {
+  html.codedrobe-host-codex .app-shell-main-content-viewport {
+    box-sizing: border-box !important;
+    padding-right: 190px !important;
+  }
+
+  html.codedrobe-host-codex main.main-surface::before {
+    content: "";
+    position: fixed;
+    z-index: 24;
+    top: 82px;
+    right: 6px;
+    bottom: 6px;
+    width: 176px;
+    box-sizing: border-box;
+    border: 1px solid #5fa7da;
+    border-radius: 2px;
+    background:
+      linear-gradient(180deg, rgba(255,255,255,.88), rgba(255,255,255,.12)) 0 0 / 100% 22px no-repeat,
+      linear-gradient(180deg, #d8efff, #a9d9f8) 0 0 / 100% 22px no-repeat,
+      linear-gradient(180deg, #d8efff, #a9d9f8) 0 226px / 100% 22px no-repeat,
+      linear-gradient(180deg, #d8efff, #a9d9f8) 0 328px / 100% 22px no-repeat,
+      linear-gradient(180deg, #d8efff, #a9d9f8) 0 454px / 100% 22px no-repeat,
+      linear-gradient(#78b8e3, #78b8e3) 0 21px / 100% 1px no-repeat,
+      linear-gradient(#78b8e3, #78b8e3) 0 225px / 100% 1px no-repeat,
+      linear-gradient(#78b8e3, #78b8e3) 0 247px / 100% 1px no-repeat,
+      linear-gradient(#78b8e3, #78b8e3) 0 327px / 100% 1px no-repeat,
+      linear-gradient(#78b8e3, #78b8e3) 0 349px / 100% 1px no-repeat,
+      linear-gradient(180deg, #e5f5ff, #cceaff) 0 354px / 100% 18px no-repeat,
+      linear-gradient(#78b8e3, #78b8e3) 0 453px / 100% 1px no-repeat,
+      linear-gradient(#78b8e3, #78b8e3) 0 475px / 100% 1px no-repeat,
+      linear-gradient(180deg, #f9fdff 0%, #edf8ff 100%);
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,.84), 0 1px 3px var(--qq-shadow);
+    pointer-events: none;
+    user-select: none;
+  }
+
+  html.codedrobe-host-codex main.main-surface::after {
+    content: "";
+    position: fixed;
+    z-index: 25;
+    top: 82px;
+    right: 6px;
+    bottom: 6px;
+    width: 176px;
+    box-sizing: border-box;
+    background:
+      var(--codedrobe-image-right-panel-labels) 0 0 / 176px 600px no-repeat,
+      var(--codedrobe-image-right-qqshow) 10px 29px / 70px 140px no-repeat;
+    overflow: hidden;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  html.codedrobe-host-codex main.main-surface:has(:is(#workspace-directory-tree-search, diffs-container)) .app-shell-main-content-viewport {
+    padding-right: 0 !important;
+  }
+
+  html.codedrobe-host-codex main.main-surface:has(:is(#workspace-directory-tree-search, diffs-container))::before,
+  html.codedrobe-host-codex main.main-surface:has(:is(#workspace-directory-tree-search, diffs-container))::after {
+    content: none !important;
+    display: none !important;
+    pointer-events: none;
+  }
+}
+
+@media (max-width: 1179px) {
+  html.codedrobe-host-codex main.main-surface::before,
+  html.codedrobe-host-codex main.main-surface::after {
+    content: none !important;
+    pointer-events: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.codedrobe-host-codex *,
+  html.codedrobe-host-codex *::before,
+  html.codedrobe-host-codex *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+}
+
+/* User-selected global typeface: keep every rendered text surface on YaHei UI. */
+html.codedrobe-host-codex,
+html.codedrobe-host-codex *,
+html.codedrobe-host-codex *::before,
+html.codedrobe-host-codex *::after {
+  font-family: "Microsoft YaHei UI", "Microsoft YaHei", "微软雅黑", sans-serif !important;
+}
+
+/* v1.1.61 — keep the QQ profile intact; place the native mode switcher beside search. */
+html.codedrobe-host-codex
+  aside.app-shell-left-panel
+  .ml-2.flex.items-center.pr-1 {
+  position: relative !important;
+  z-index: 20 !important;
+  min-height: 32px !important;
+  margin-left: 8px !important;
+  padding: 0 4px 0 0 !important;
+  gap: 6px !important;
+}
+
+html.codedrobe-host-codex
+  aside.app-shell-left-panel
+  .ml-2.flex.items-center.pr-1
+  > button[data-state][aria-expanded] {
+  position: relative !important;
+  z-index: 2 !important;
+  flex: 0 1 auto !important;
+  width: auto !important;
+  max-width: calc(100% - 36px) !important;
+  min-height: 28px !important;
+  padding: 2px 8px !important;
+  border: 1px solid transparent !important;
+  border-radius: 4px !important;
+  background: transparent !important;
+  color: var(--qq-ink) !important;
+  transform: none !important;
+}
+
+html.codedrobe-host-codex
+  aside.app-shell-left-panel
+  .ml-2.flex.items-center.pr-1
+  > button[data-state][aria-expanded]:is(:hover, :focus-visible, [data-state="open"]) {
+  border-color: #5f9fd0 !important;
+  background: linear-gradient(180deg, #ffffff, #d9efff) !important;
+  box-shadow: inset 0 1px #ffffff !important;
+  outline: 1px solid rgba(38, 127, 192, .24) !important;
+  outline-offset: 1px !important;
+}
+
+/* v1.1.62 — reveal and skin Codex's native header instead of covering it with fake controls. */
+html.codedrobe-host-codex:not(:has(.group\/application-menu-top-bar)) #root::before,
+html.codedrobe-host-codex:not(:has(.group\/application-menu-top-bar)) #root::after {
+  content: none !important;
+  display: none !important;
+}
+
+html.codedrobe-host-codex header.app-header-tint {
+  background: linear-gradient(
+    180deg,
+    #003b91 0%,
+    #0047ad 4%,
+    #075fca 13%,
+    #0d76df 30%,
+    #188cf0 49%,
+    #1385ea 60%,
+    #0a70d7 76%,
+    #045bbb 90%,
+    #00479e 97%,
+    #75aae5 100%
+  ) !important;
+  border-top: 1px solid #002f7d !important;
+  border-bottom: 1px solid #83b5ea !important;
+  color: #fff !important;
+  box-shadow:
+    inset 0 2px 3px rgba(0, 26, 82, .82),
+    inset 0 -1px rgba(197, 226, 255, .72) !important;
+}
+
+html.codedrobe-host-codex header.app-header-tint * {
+  color: #fff !important;
+}
+
+html.codedrobe-host-codex header.app-header-tint :is(button, [role="button"]) {
+  color: #fff !important;
+  text-shadow: 0 1px 1px rgba(0, 35, 105, .78) !important;
+}
+
+html.codedrobe-host-codex header.app-header-tint :is(button, [role="button"]):is(:hover, :focus-visible, [data-state="open"]) {
+  border-color: rgba(255,255,255,.48) !important;
+  background: linear-gradient(180deg, rgba(114,177,255,.78), rgba(13,83,203,.84)) !important;
+  box-shadow: inset 0 1px rgba(255,255,255,.5) !important;
+}
+
+html.codedrobe-host-codex header.app-header-tint svg {
+  color: #fff !important;
+  opacity: 1 !important;
+}
+
+/*
+ * v1.1.70 — the native title/file tab is content, not title-bar chrome.
+ * Keep its folder icon and title on the continuous blue bar without a
+ * rectangular layer covering them. Other native header actions keep their
+ * hover/focus treatment.
+ */
+html.codedrobe-host-codex header.app-header-tint .group\/tab,
+html.codedrobe-host-codex header.app-header-tint .group\/tab.bg-token-main-surface-primary {
+  border-color: transparent !important;
+  outline: none !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+}
+
+html.codedrobe-host-codex header.app-header-tint .group\/tab:is(:hover, :focus-visible, [data-state="open"]) {
+  border-color: transparent !important;
+  outline: none !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+  filter: brightness(1.12) !important;
+}
+
+/* Keep native header slots transparent so the continuous QQ title bar stays visible. */
+html.codedrobe-host-codex header.app-header-tint [data-test-id="header-shell-slot"],
+html.codedrobe-host-codex header.app-header-tint [data-test-id="header-shell-slot"] > * {
+  background-color: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+}
+
+/* v1.1.67 — retire the old rectangular header gap patch. */
+html.codedrobe-host-codex header.app-header-tint::after {
+  content: none !important;
+  display: none !important;
+  pointer-events: none !important;
+}
+
+/* ChatGPT mode: the native sliding indicator follows the selected Chat/Work button. */
+html.codedrobe-host-codex header.app-header-tint div[role="group"].inline-grid.grid-cols-2
+  > span.absolute.z-0 {
+  border: 1px solid rgba(255,255,255,.56) !important;
+  background: linear-gradient(180deg, #fafdff, #cceaff) !important;
+  box-shadow: inset 0 1px #fff !important;
+}
+
+html.codedrobe-host-codex header.app-header-tint div[role="group"].inline-grid.grid-cols-2
+  > span.relative.z-10 {
+  border: 1px solid rgba(255,255,255,.78) !important;
+  background: linear-gradient(180deg, #43aef5 0%, #087fd1 52%, #075db2 100%) !important;
+  box-shadow:
+    inset 0 1px rgba(255,255,255,.55),
+    0 1px 3px rgba(0,44,112,.45) !important;
+}
+
+html.codedrobe-host-codex header.app-header-tint div[role="group"].inline-grid.grid-cols-2
+  > button {
+  color: #174e77 !important;
+  text-shadow: 0 1px #fff !important;
+}
+
+html.codedrobe-host-codex header.app-header-tint div[role="group"].inline-grid.grid-cols-2
+  > button.text-token-text-primary {
+  color: #fff !important;
+  text-shadow: 0 1px 1px rgba(0,35,105,.78) !important;
+}
+
+/*
+ * v1.1.69 — ChatGPT Work mounts the composer surface itself as the z-10 flex
+ * root and already includes a native 14px attachment spacer. Reserve only the
+ * remaining 16px of the 30px QQ toolbar so line one starts immediately below
+ * the icons; Codex and Chat use a different wrapper and remain unchanged.
+ */
+html.codedrobe-host-codex
+  .composer-surface-chrome.z-10
+  .flex-grow:has(.ProseMirror) {
+  box-sizing: border-box !important;
+  min-height: calc(
+    var(--qq-composer-editor-min-height) +
+    var(--qq-composer-toolbar-height) -
+    14px
+  ) !important;
+  padding: calc(var(--qq-composer-toolbar-height) - 14px) 12px 8px !important;
+}
+
+/*
+ * v1.1.68 — Chat's compact editor turns the global amber focus outline into
+ * two horizontal lines. Keep the outer QQ composer border as the focus cue
+ * and make only the editable surface's internal ring invisible.
+ */
+html.codedrobe-host-codex
+  .composer-surface-chrome
+  :is(input, textarea, .ProseMirror, [contenteditable="true"]):focus-visible {
+  --color-token-focus-border: transparent !important;
+  border-color: transparent !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
